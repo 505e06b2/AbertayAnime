@@ -1,0 +1,22 @@
+[
+	{
+		"name": "Welcome to the N.H.K.",
+		"base_page": "https://kissanime.ru/Anime/NHK-ni-Youkoso",
+		"total_eps": 24,
+		"last_watched_ep": 8
+	},
+	
+	{
+		"name": "Toilet-Bound Hanako-Kun",
+		"base_page": "https://kissanime.ru/Anime/Jibaku-Shounen-Hanako-kun",
+		"total_eps": 12,
+		"last_watched_ep": 6
+	},
+
+	{
+		"name": "Interspecies Reviewers",
+		"base_page": "https://kissanime.ru/Anime/Ishuzoku-Reviewers",
+		"total_eps": 12,
+		"last_watched_ep": 6
+	}
+]
