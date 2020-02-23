@@ -52,6 +52,7 @@
 
 			.title {
 				font-size: 4vh;
+				height: 16vh;
 			}
 
 			@media all and (orientation:landscape) {
@@ -78,7 +79,7 @@
 					const percent = e.last_watched_ep / e.total_eps * 100;
 					html_buffer += `
 						<a href="${e.base_page}" target="_blank" class="cell">
-							<div class="image-bg" style="background-image: url('${e.name}.jpg')"></div>
+							<div class="image-bg" style="background-image: url('${e.name.replace("'", "%27")}.jpg')"></div>
 							<div class="vertical-center">
 								<div style="text-align: center">
 									<div class="title">${e.name}</div>
