@@ -1,0 +1,101 @@
+<html>
+	<head>
+		<style>
+			body {
+				background: #333;
+				margin: 0px;
+				padding: 0px;
+			}
+
+			a, a:visited {
+				color: white;
+				font-family: Sans-Serif;
+				text-shadow: 0 0 10px #aaa, 0 0 20px #aaa, 0 0 30px #aaa, 0 0 40px #aaa, 0 0 50px #aaa, 0 0 60px #aaa, 0 0 70px #aaa;
+			}
+
+			.table {
+				width: 100%;
+				height: 100%;
+				margin: 0px;
+				padding: 0px;
+				display: table;
+				table-layout: fixed;
+				border-collapse: separate;
+				border-spacing: 10px;
+			}
+
+			.table .cell {
+				position: relative;
+				height: 100%;
+			}
+
+			.table .cell .image-bg {
+				filter: blur(4px) brightness(80%);
+				background: center/cover no-repeat;
+				width: 100%;
+				height: 100%;
+			}
+
+			.vertical-center {
+				width: 100%;
+				position: absolute;
+				top: 80%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+			}
+
+			.progress-bar {
+				margin-left: 10px;
+				margin-right: 10px;
+				font-size: 3vh;
+			}
+
+			.title {
+				font-size: 4vh;
+			}
+
+			@media all and (orientation:landscape) {
+				.cell {
+					display: table-cell;
+				}
+			}
+
+			@media all and (orientation:portrait) {
+				.cell {
+					display: block;
+				}
+			}
+		</style>
+		<script>
+			window.onload = async function() {
+				const current_file = "spring_2020.json";
+				const list = await (await fetch(`https://raw.githubusercontent.com/505e06b2/AbertayAnime/master/${current_file}`)).json();
+				console.log(list);
+
+				html_buffer = '<div class="table">'
+
+				list.forEach(function(e) {
+					const percent = e.last_watched_ep / e.total_eps * 100;
+					html_buffer += `
+						<a href="${e.base_page}" target="_blank" class="cell">
+							<div class="image-bg" style="background-image: url('${e.name}.jpg')"></div>
+							<div class="vertical-center">
+								<div style="text-align: center">
+									<div class="title">${e.name}</div>
+									<br>
+									<div class="progress-bar" style="background-image: linear-gradient(to right, red 0%, red ${percent}%, rgba(0,0,0,0.3) ${percent+5}%, rgba(0,0,0,0.3) 100%);">Watched ${e.last_watched_ep} / ${e.total_eps}</div>
+								</div>
+							</div>
+						</a>
+					`;
+				});
+				html_buffer += "</div>";
+
+				document.body.innerHTML = html_buffer;
+			}
+		</script>
+	</head>
+	<body>
+		Loading...
+	</body>
+</html>
