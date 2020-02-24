@@ -8,9 +8,16 @@
 			}
 
 			a, a:visited {
+				--blur-colour: #777;
 				color: white;
 				font-family: Sans-Serif;
-				text-shadow: 0 0 10px #aaa, 0 0 20px #aaa, 0 0 30px #aaa, 0 0 40px #aaa, 0 0 50px #aaa, 0 0 60px #aaa, 0 0 70px #aaa;
+				text-shadow: 0 0 10px var(--blur-colour),
+				             0 0 20px var(--blur-colour),
+				             0 0 30px var(--blur-colour),
+				             0 0 40px var(--blur-colour),
+				             0 0 50px var(--blur-colour),
+				             0 0 60px var(--blur-colour),
+				             0 0 70px var(--blur-colour);
 			}
 
 			.table {
